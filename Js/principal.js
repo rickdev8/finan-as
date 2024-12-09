@@ -15,7 +15,7 @@ function radio() {
   radios.forEach((radio) => {
     radio.addEventListener('change', function() {
       radiovalue = this.value;
-    });
+    })
   });
 }
 
@@ -186,7 +186,7 @@ async function adcdiv(i) {
 }
 
 async function concluir() {
-  const tipo = document.getElementById('tipo').value;
+  const tipo = document.getElementById('tipo').value.toLowerCase();
   const desc = document.getElementById('desc').value;
   const cate = document.getElementById('cate').value;
   const valor = parseFloat(document.getElementById('valor').value);
@@ -204,14 +204,16 @@ async function concluir() {
     data: data
   };
 
+  const verificador = verificar(tipo, desc, cate, valor)
+
   let total = 0;
-  if (tipo === 'Entrada') {
+  if (tipo === 'entrada') {
     total += valor;
     novaTransacao.total = total;
     novaTransacao.receita = valor;
-    novaTransacao.tipo= 'Entrada';
+    novaTransacao.tipo = 'Entrada';
     novaTransacao.categoria= 'Receita'
-  } else if (tipo === 'Saida') {
+  } else if (tipo === 'saida') {
     total -= valor;
     novaTransacao.total = total;
     novaTransacao.despesa = valor;
@@ -219,8 +221,6 @@ async function concluir() {
     novaTransacao.categoria = 'Despesa'
   }
 
-
-  const verificador = verificar(tipo, desc, cate, valor)
   if(verificador){
     await editartransacao(novaTransacao)
   }
@@ -228,6 +228,7 @@ async function concluir() {
   
 }
 function verificar(tipo, desc, cate, valor) {
+
   let verificador = false;
 
   // Verificar se o comprimento de algum dos parâmetros excede 23
@@ -236,7 +237,7 @@ function verificar(tipo, desc, cate, valor) {
   } else {
       verificador = true;
   }
-  if(tipo === "Entrada" || tipo === "Saida"){
+  if(tipo === 'entrada' || tipo === "saida"){
     verificador = true
   } else {
     window.alert("Insira um tipo válido!")
@@ -248,7 +249,6 @@ function verificar(tipo, desc, cate, valor) {
 }
 
 async function dadosretornados() {
-  const nome = document.querySelector('.nomeus')
   const dados = await get();
   const ids = localStorage.getItem('id');
   let index;
@@ -259,8 +259,9 @@ async function dadosretornados() {
     }
     
   }
+  
+  const nome = document.getElementById("nome")
   nome.innerHTML = dados[index].conta.nome
-
   const lista = dados[index].transacoes;
   return { lista: lista, ids: ids };
 }
@@ -339,10 +340,10 @@ async function historico() {
         <td id="desch">${transacoesfinais[i].descricao}</td>                   
         <td id="categh">${transacoesfinais[i].categoria}</td>                     
         <td id="valorh">${transacoesfinais[i].total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>               
-        <td id="data" class="income">${transacoesfinais[i].data} 
-          <button id="lixeira" onclick="retornarids(${i})" class="fa-solid fa-trash"></button>
-          <button id="edit" class="fa-solid fa-pen" onclick="adcdiv(${i})"></button>
-        </td>
+        <td id="data" class="income">${transacoesfinais[i].data} </td>
+        <td> <button id="lixeira" onclick="retornarids(${i})" class="fa-solid fa-trash"></button><button id="edit" class="fa-solid fa-pen" onclick="adcdiv(${i})"></button></td>
+            
+       
       </tr>`;
   }
 
@@ -377,6 +378,29 @@ async function contarTransacoesPorMes() {
   });
   return resumoPorMes;
 }
+// Selecionando os elementos
+// Selecionando os elementos
+const menuHamburguer = document.querySelector(".menu-hamburguer");
+const nav = document.querySelector("nav");
+const menuLinks = document.querySelectorAll("nav a"); 
+const fechar = document.querySelector('.close-btn');
+
+// Função para abrir/fechar o menu ao clicar no ícone de hambúrguer
+menuHamburguer.addEventListener("click", () => {
+    nav.classList.toggle("active");  // Adiciona ou remove a classe 'active' para abrir/fechar o menu
+});
+
+// Fechar o menu ao clicar no botão "X"
+fechar.addEventListener('click', () => {
+    nav.classList.remove("active");  // Remove a classe 'active' para fechar o menu
+});
+
+// Fechar o menu quando um link for clicado
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");  // Remove a classe 'active' quando qualquer link for clicado
+    });
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
   radio()
