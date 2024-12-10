@@ -589,11 +589,38 @@ h1 {
     }
 
    
-   .form-group2{
+ .form-group2{
+        display: flex;
+        justify-content: center;
+        text-align: center;
         margin-top: 20px;
         margin-bottom: 30px;
     }
     
+    .saida{
+        display: flex;
+        width: 100px;
+        height: 50px;
+    }
+
+    .form-group2 input{
+        display: flex;
+        text-align: center;
+        width: 15px;
+        height: 15px;
+    }
+
+    
+    .add-transaction .entrada,
+    .add-transaction .saida {
+    margin-top: 8px;
+    width: 120px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
     
 }
 
