@@ -192,14 +192,14 @@ h2 {
 
 .form button{
     cursor: pointer;
-    background-color: #ffffff;
-    color: #2c3e50;
+    background-color: #2c3e50;
+    color: white;
     transition: 0.5s;
 }
 
 .form button:hover{
-    background-color: #2c3e50;
-    color: #f4f7fc;
+    background-color: #ffffff;
+    color: #2c3e50;
     transition: 0.5s;
 }
 
@@ -438,22 +438,80 @@ h1 {
 /* Responsividade */
 @media (max-width: 768px) {
 
-    /* Logo */
+}
+
+@media (max-width: 480px) {
+
+    
     .logo h1 {
-        margin-left:3px ;
+        margin-left:20px ;
         font-size: 1.8rem;
     }
-   
-   
 
-    .chart #myChart {
+    .add-transaction .form {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
         width: 100%;
+        padding: 10px;
+        height: 450px;
     }
 
-    .chart-placeholder {
-        height: 240px;
+    .add-transaction .form .input2,
+    .add-transaction .form button {
+        font-size: 0.85rem;
+        padding: 8px;
     }
 
+    .add-transaction .form .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .add-transaction .entrada label,
+    .add-transaction .saida label {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .form-group{
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+   
+    .form-group2{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .saida{
+        display: flex;
+        width: 100px;
+        height: 50px;
+    }
+
+    .form-group2 input{
+        display: flex;
+        text-align: center;
+        width: 15px;
+        height: 15px;
+    }
+
+    
+    .add-transaction .entrada,
+    .add-transaction .saida {
+         margin-top: 8px;
+         width: 120px;
+         height: 40px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+    }
     table {
         margin-top: -30px;
         table-layout: fixed;
@@ -462,28 +520,53 @@ h1 {
     }
 
     .table-container {
-        max-height: 250px; /* Define a altura máxima da tabela */
-        overflow-y: auto; /* Adiciona a rolagem vertical quando necessário */
+        max-height: 250px; 
+        overflow-y: auto;
         display: block; 
         margin-bottom: 30px;
-        /* Garante que o container se comporte como um bloco */
     }
+
+    #edit{
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+
+    #lixeira{
+        font-size: 12px;
+    }
+
 
     th, td {
         font-size: 9px;
-        
-        padding: 3px;
-        height: 40px;
+        padding: 2px;
+        height: 42px;
         text-align: center;
         border: 1px solid #ddd;
     }
 
     th {
-        color: white;
-        background-color: #2c3e50;
+     color: white;
+     background-color: #2c3e50;
     }
 
-    
+    .chart {
+        margin-bottom: 40px;
+        height: 320px;
+        width: 100%;
+    }
+    .chart #myChart {
+        width: 100%;
+    }
+
+    .chart-placeholder {
+        height: 240px;
+    }
+
+   
+    .category {
+        width: 100%;
+    }
     .menu-hamburguer {
         display: block;
     }
@@ -520,107 +603,6 @@ h1 {
         font-size: 1.2rem;
         padding: 10px;
     }
-
-    #edit{
-        margin-left: 8px;
-        font-size: 12px;
-
-    }
-    #lixeira{
-        font-size: 12px;
-    }
-
-    .close-btn{
-        margin-top: -40px;
-        margin-left: 100px;
-    }
-
-    .chart {
-        margin-bottom: 40px;
-        height: 320px;
-        width: 300px;
-    }
-    .chart #myChart {
-        width: 100%;
-    }
-
-    .chart-placeholder {
-        height: 240px;
-    }
-
-    .category {
-        width: 100%;
-    }
-
-}
-
-    
-
-
-
-@media (max-width: 480px) {
-    .add-transaction .form {
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        width: 85%;
-        padding: 10px;
-    }
-
-    .add-transaction .form .input2,
-    .add-transaction .form button {
-        font-size: 0.85rem;
-        padding: 8px;
-    }
-
-    .add-transaction .form .form-group label {
-        font-size: 0.9rem;
-    }
-
-    .add-transaction .entrada label,
-    .add-transaction .saida label {
-        font-size: 0.9rem;
-    }
-
-        .form-group{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-   
- .form-group2{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-    
-    .saida{
-        display: flex;
-        width: 100px;
-        height: 50px;
-    }
-
-    .form-group2 input{
-        display: flex;
-        text-align: center;
-        width: 15px;
-        height: 15px;
-    }
-
-    
-    .add-transaction .entrada,
-    .add-transaction .saida {
-    margin-top: 8px;
-    width: 120px;
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
     
 }
 
