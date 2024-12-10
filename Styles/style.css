@@ -587,6 +587,12 @@ h1 {
         flex-direction: column;
         justify-content: center;
     }
+
+      .form-group2{
+        height: 80px;
+        margin-top: 20px;
+    }
+
     
 }
 
