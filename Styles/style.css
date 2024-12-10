@@ -589,29 +589,11 @@ h1 {
     }
 
    
-    .form-group2{
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        height: 100%;
-        margin-bottom: 30px;
+   .form-group2{
         margin-top: 20px;
-
+        margin-bottom: 30px;
     }
-
-    .form-group2, .entrada, .saida{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        
-    }
-
-    .saidar, .entradar input{
-        width: 10px;
-        height: 25px;
-    }
+    
     
 }
 
